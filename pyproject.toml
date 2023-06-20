@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pyrobot"
+version = "0.1.0"
+description = ""
+authors = ["Marcin Wolinski <mwo@woodthilsted.com>"]
+readme = "README.md"
+packages = [{include = "pyrobot", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+pythonnet = "^3.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
