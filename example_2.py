@@ -9,8 +9,11 @@ from RobotOM import *
 app = RobotApplication()
 str = Structure(app)
 
-nodes = str.get_all_nodes()
-node = str.get_node_from_collection(1)
+bars = str.results.Bars # IRobotBarResultServer
 
-print(nodes.Count)
-print(node.X)
+forces = bars.Forces # IRobotBarForceServer
+bar_data = forces.Value(1,1,0) # IRobotBarForceData
+
+
+print(bar_data.FX)
+
