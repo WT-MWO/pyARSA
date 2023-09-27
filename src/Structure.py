@@ -90,5 +90,6 @@ class PyRobot(Structure):
                         suport_data.NonlinearModel.IsDefined(rbt.IRobotDegreeOfFreedom(2)),
                     ]
                 )
-        def get_current_view(self):
-            pass
+
+    def get_current_view(self):
+        return self.project.ViewMngr.GetView(1)

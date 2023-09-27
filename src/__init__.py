@@ -1,1 +1,1 @@
-from .Structure import Structure, RSAQuery
+from .Structure import PyRobot
