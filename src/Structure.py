@@ -1,31 +1,34 @@
 import clr
 import os
+
 clr.AddReference(
-    r"C:\Program Files\Autodesk\Robot Structural Analysis Professional 2023\Exe\Interop.RobotOM.dll")
+    r"C:\Program Files\Autodesk\Robot Structural Analysis Professional 2023\Exe\Interop.RobotOM.dll"
+)
 from RobotOM import *
 import RobotOM as rbt
 
 
 class Structure:
-    def __init__(self, app):
+    def __init__(self):
         """
         This is Python wrapper for Autodesk Robot API.
         Parameters:
             app(RobotApplication): Robot application
         """
-        self.app = app
+        self.app = rbt.RobotApplication()
         self.project = self.app.Project
         self.structure = self.project.Structure
         self.labels = self.structure.Labels
         self.cases = self.structure.Cases
         self.nodes = self.structure.Nodes
-        self.results = self.structure.Results # IRobotResultServer
+        self.results = self.structure.Results  # IRobotResultServer
         self.objects = self.structure.Objects
+        self.rbt = rbt
 
 
 class PyRobot(Structure):
-    def __init__(self, app):
-        super().__init__(app)
+    def __init__(self):
+        super().__init__()
 
     def get_all_nodes(self):
         """
@@ -87,9 +90,11 @@ class PyRobot(Structure):
                     [
                         suport_data.KZ,
                         suport_data.ElasticLinear,
-                        suport_data.NonlinearModel.IsDefined(rbt.IRobotDegreeOfFreedom(2)),
+                        suport_data.NonlinearModel.IsDefined(
+                            rbt.IRobotDegreeOfFreedom(2)
+                        ),
                     ]
                 )
 
     def get_current_view(self):
-        return self.project.ViewMngr.GetView(1)
+        return rbt.IRobotView3(self.project.ViewMngr.GetView(1))
