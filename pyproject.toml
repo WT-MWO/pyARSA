@@ -12,7 +12,7 @@ pythonnet = "^3.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
-pillow = "^10.0.1"
+pillow = "^10.2.0"
 
 [build-system]
 requires = ["poetry-core"]
