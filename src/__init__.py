@@ -1,2 +1,2 @@
-from .Structure import PyRobot
+from .PyARSA import PyARSA
 from .clipboard_rbt_view import save_clipboard_robot_view

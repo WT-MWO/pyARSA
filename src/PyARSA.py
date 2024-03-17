@@ -9,13 +9,13 @@ import RobotOM as rbt
 
 
 class Structure:
-    def __init__(self):
+    def __init__(app):
         """
         This is Python wrapper for Autodesk Robot API.
         Parameters:
             app(RobotApplication): Robot application
         """
-        self.app = rbt.RobotApplication()
+        self.app = app
         self.project = self.app.Project
         self.structure = self.project.Structure
         self.labels = self.structure.Labels
@@ -26,7 +26,7 @@ class Structure:
         self.rbt = rbt
 
 
-class PyRobot(Structure):
+class PyARSA(Structure):
     def __init__(self):
         super().__init__()
 
@@ -67,7 +67,7 @@ class PyRobot(Structure):
         return dir
 
     def get_used_supports(self):
-        """This code does not work but can be easily corrected when needed"""
+        """This code does not work needs to be investigated"""
         labels = self.labels.GetAvailableNames(rbt.IRobotLabelType.I_LT_SUPPORT)
         supports_count = labels.Count
         for i in range(1, supports_count + 1):

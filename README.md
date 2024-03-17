@@ -1,1 +1,1 @@
-Autodesk Robot API Python Wrapper
+Autodesk Robot Structural Analysis API Python Wrapper

@@ -1,18 +1,17 @@
-
 import clr
-from src import RSAQuery
+from src import PyARSA
 
 clr.AddReference(
-    r"C:\Program Files\Autodesk\Robot Structural Analysis Professional 2023\Exe\Interop.RobotOM.dll")
+    r"C:\Program Files\Autodesk\Robot pyrobotuctural Analysis Professional 2023\Exe\Interop.RobotOM.dll"
+)
 from RobotOM import *
 
 app = RobotApplication()
 
-str = RSAQuery(app)
+pyrobot = PyARSA(app)
 
-nodes = str.get_all_nodes()
-node = str.get_node_from_collection(1)
+nodes = pyrobot.get_all_nodes()
+node = pyrobot.get_node_from_collection(1)
 
-case_col = str.cases.GetAll()
+case_col = pyrobot.cases.GetAll()
 case = IRobotCase(case_col.Get(1))
-

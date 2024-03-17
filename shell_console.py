@@ -1,19 +1,20 @@
 import clr
-from src import Structure
+from src import PyARSA
 
 clr.AddReference(
-    r"C:\Program Files\Autodesk\Robot Structural Analysis Professional 2023\Exe\Interop.RobotOM.dll")
+    r"C:\Program Files\Autodesk\Robot Structural Analysis Professional 2023\Exe\Interop.RobotOM.dll"
+)
 from RobotOM import *
 
 app = RobotApplication()
-str = Structure(app)
+str = PyARSA(app)
 
 
-#create panel 1
+# create panel 1
 free_num = str.objects.FreeNumber
 panel_1 = str.objects.Create(free_num)
- 
-#create contour for object
+
+# create contour for object
 
 geocontour = RobotGeoContour
 # geocontour.Initialize
@@ -23,4 +24,3 @@ geocontour = RobotGeoContour
 segment = RobotGeoSegmentLine
 
 print(segment)
-

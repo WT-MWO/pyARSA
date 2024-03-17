@@ -1,8 +1,8 @@
-from src import PyRobot
+from src import PyARSA
 from src import save_clipboard_robot_view
 from tkinter import Tk
 
-pyrbt = PyRobot()
+pyrbt = PyARSA()
 current_view = pyrbt.get_current_view()
 
 
