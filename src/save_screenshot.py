@@ -15,7 +15,8 @@ def _get_image_from_clipboard():
             metafile_picture = data[
                 14:
             ]  # Skip the first 14 bytes which are header data
-            return BytesIO(metafile_picture)
+            im = Image.open(BytesIO(metafile_picture))
+            return im
         elif win32clipboard.IsClipboardFormatAvailable(win32clipboard.CF_DIB):
             data = win32clipboard.GetClipboardData(win32clipboard.CF_DIB)
             im = Image.open(BytesIO(data))
@@ -35,7 +36,6 @@ def _save_image(image, filename):
         print("Not a valid image.")
 
 
-
 def save_screenshot(path, name):
     """Saves the ARSA model screenshot from clipboars as png.
     Parameters:
@@ -46,9 +46,8 @@ def save_screenshot(path, name):
     _save_image(image, full_name)
 
 
-
 if __name__ == "__main__":
-    path = "C:\\Users\\mwo\\OneDrive - WoodThilsted Partners\\Professional\\5_PYTHON\\pyARSA\\tests\\"
+    path = "C:\\Users\mwo\\Desktop\\test"
     name = "test"
     save_screenshot(path=path, name=name)
 
