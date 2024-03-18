@@ -9,6 +9,7 @@ packages = [{include = "pyrobot", from = "src"}]
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
 pythonnet = "^3.0.1"
+pywin32 = "^306"
 
 
 [tool.poetry.group.dev.dependencies]
