@@ -1,10 +1,18 @@
+import clr
+import os
+
+clr.AddReference(
+    r"C:\Program Files\Autodesk\Robot Structural Analysis Professional 2023\Exe\Interop.RobotOM.dll"
+)
+from RobotOM import *
+import RobotOM as rbt
 from .pyARSA import Structure
 
 class pyARSAReporting(Structure):
     """Query information from ARSA model.
     """
-    def __init__(self):
-        super().__init__()
+    def __init__(self, app):
+        super().__init__(app)
 
     def get_all_nodes(self):
         """
@@ -21,7 +29,7 @@ class pyARSAReporting(Structure):
         Returns: IRobotNode object
         """
         node_collection = self.get_all_nodes()
-        node = IRobotNode(node_collection.Get(index))
+        node = rbt.IRobotNode(node_collection.Get(index))
         return node
 
     def get_compatible_nodes(self):
@@ -75,3 +83,8 @@ class pyARSAReporting(Structure):
     def get_current_view(self):
         return rbt.IRobotView3(self.project.ViewMngr.GetView(1))
 
+    def get_combinations(self):
+        pass
+
+    def get_all_load_cases(self):
+        return self.structure.Cases.GetAll()
