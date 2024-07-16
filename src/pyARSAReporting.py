@@ -6,7 +6,7 @@ clr.AddReference(
 )
 from RobotOM import *
 import RobotOM as rbt
-from .pyARSA import Structure
+from Structure import Structure
 
 class pyARSAReporting(Structure):
     """Query information from ARSA model.

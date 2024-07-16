@@ -1,4 +1,4 @@
-from .Structure import Structure
+from Structure import Structure
 
 class PyARSA(Structure):
     """Create and modify ARSA model."""

@@ -19,4 +19,3 @@ nodes_coords = np.array([[1,0,0,0],
                          )
 pyrobot.add_nodes(nodes_coords)
 
-
